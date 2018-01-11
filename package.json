@@ -1,0 +1,9 @@
+{
+  "name": "30DaysOfJS",
+  "version": "1.0.0",
+  "description": "30 Days Vanilla JS Challenge",
+  "main": "index.js",
+  "repository": "https://github.com/barryblando/30DaysOfJS.git",
+  "author": "Retr0_0x315 <barryblando@gmail.com>",
+  "license": "MIT"
+}
