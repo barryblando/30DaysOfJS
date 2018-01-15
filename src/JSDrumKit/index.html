@@ -71,7 +71,7 @@
 
   function removeTransition(e) {
     if (e.propertyName !== 'transform') return; // skip it if it's not a transform
-    // this will be key cause that's the one that called addEventListener
+    // this keyword will be key cause that's the one that called addEventListener
     console.log(e);
     this.classList.remove('playing'); // 0.7s
   }
