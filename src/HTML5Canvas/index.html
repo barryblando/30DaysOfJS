@@ -73,7 +73,7 @@
 
   canvas.addEventListener('mousedown', (e) => {
     isDrawing = true,
-    // update to last position for next starting point
+    // update to last position for next starting point, not 0, 0
     [lastX, lastY] = [e.offsetX, e.offsetY]
   });
 
