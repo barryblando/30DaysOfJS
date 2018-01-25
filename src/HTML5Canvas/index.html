@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Canvas</title>
+</head>
+<body>
+<canvas id="draw" width="800" height="800"></canvas>
+<script>
+  const canvas =  document.querySelector('#draw');
+  const ctx = canvas.getContext('2d');
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  ctx.strokeStyle = '#BADA55'; // color
+
+  //<reference https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineJoin
+  //<reference https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineCap
+  ctx.lineJoin = 'round'; // end of line
+  ctx.lineCap = 'round';
+
+  ctx.lineWidth = 100;
+
+  // state
+  let isDrawing = false;
+  let lastX = 0; // pos
+  let lastY = 0; // pos
+  let hue = 0; // colors HSL
+  let direction = true;
+
+  function draw(e) {
+    if (!isDrawing) return; // stop the fn from running when they are not moused down
+
+    // log event
+    console.log(e);
+
+    ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+
+    ctx.beginPath();
+    // start from
+    ctx.moveTo(lastX, lastY);
+    // go to
+    ctx.lineTo(e.offsetX, e.offsetY);
+    ctx.stroke();
+
+    // destructuring array
+    [lastX, lastY] = [e.offsetX, e.offsetY];
+
+    //increment state of hue for more colors
+    hue++;
+
+    if (hue >= 360) {
+      // reset if hue is greater than its max spectrum 360
+      hue = 0;
+    }
+
+    // width will grow bigger until 100 and then it will slowly bring itself down once we get to 100
+    if (ctx.lineWidth >= 100 || ctx.lineWidth <= 1) {
+      // flip direction
+      direction = !direction;
+    }
+
+    if (direction ) {
+      // lineWidth goes up
+      ctx.lineWidth++;
+    } else {
+      // lineWidth goes up
+      ctx.lineWidth--;
+    }
+
+  }
+
+  canvas.addEventListener('mousedown', (e) => {
+    isDrawing = true,
+    // update to last position for next starting point
+    [lastX, lastY] = [e.offsetX, e.offsetY]
+  });
+
+  canvas.addEventListener('mousemove', draw);
+  canvas.addEventListener('mouseup', () => isDrawing = false);
+  canvas.addEventListener('mouseout', () => isDrawing = false);
+
+
+</script>
+
+<style>
+  html, body {
+    margin:0;
+  }
+</style>
+
+</body>
+</html>
