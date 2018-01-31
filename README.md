@@ -19,3 +19,5 @@ DAY 7 - Array Cardio Day 2
 DAY 8 - HTML5 Canvas
 
 DAY 9 - DevTools Domination Tips
+
+DAY 10 - Hold Shift to Check Multiple CheckBoxes
