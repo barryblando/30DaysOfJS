@@ -49,3 +49,152 @@ const expensiveStocks = getStocksOver(
   150.00);
 
 console.log(JSON.stringify(expensiveStocks));
+
+function greet(whattosay) {
+  // CLOSURE: One of the best feature of javascript
+  // whattosay lexically sits on variable environment of greet
+  return function(name) {
+    // do scope chain getting whattosay where lexically sits also on greet memory space or outer
+    console.log(whattosay + ' ' + name);
+  }
+}
+
+const sayHi = greet('Hi'); // Invoke greet creating new execution context
+sayHi('Tony');
+
+function buildFunctions() {
+  const arr = []; // array values will be put here arr = (5) [f, f, f, f, f]
+
+  for(let i = 0; i < 5; i++) {
+    arr.push(
+      // when executed it's value remains at memory space and can be access by closure and put it to push
+      (function(x) {
+        return function () {
+          console.log(x); // 0, 1, 2, 3, 4, 0, 1, 2
+        }
+      }(i))
+    );
+  }
+  return arr;
+}
+
+const fs = buildFunctions(); // array variable initialized buildFunctions
+
+// INFO: https://stackoverflow.com/questions/3592468/can-i-store-javascript-functions-in-arrays
+// functions inside the arrays, remember that functions are first class objects in JavaScript, Value(s) in an array are just one example of that.
+// I iterate functions by 5 that I'm trying to put into an array and then execute one after the other
+for(let i = 0; i < 5; i++) {
+  // reference an item element[i] inside the array and dynamically invoke it
+  fs[i]();
+}
+
+fs[0]();
+fs[1]();
+fs[2]();
+
+console.log("10" + 20 + 30);
+console.log(20 + 30 + "10");
+
+// Alternative for Proposal Optional Chaining Operator Javascript Stage 1
+
+function get(obj, ...props) {
+  obj
+  props
+  const val = obj[props[0]];
+  console.log(val);
+  if(props.length === 1 || !val) return val;
+  const rest = props.slice(1);
+  console.log(get.apply(null, [val, ...rest]));
+  return get.apply(null, [val, ...rest]);
+}
+
+const user = { name: 'Fluffykins', address: { zip: 1234} };
+const zip = get(user, 'address', 'zip');
+console.log(zip);
+
+
+const eventDay = {
+  presentation(style, timeOfDay) {
+    if (style === 'formal') {
+      console.log(`Good ${timeOfDay}, Ladies  and gentlemen! I'm ${this.fName}, I'm a ${this.job}, and I'm ${this.age} years old.`);
+    } else if (style === 'friendly') {
+      console.log(`Hey! What's up? I'm ${this.fName}, I'm a ${this.job}, and I'm ${this.age} years old. Have a nice ${timeOfDay}.`)
+    }
+  }
+};
+
+const shamina = {
+  fName: 'Shamina',
+  age : 23,
+  job : 'Web Designer'
+}
+
+const barry = {
+  fName: 'Barry',
+  age: 24,
+  job: 'Web Developer'
+};
+
+const shaminaFormal = eventDay.presentation.bind(shamina, 'formal');
+shaminaFormal('evening')
+
+const barryFriendly = eventDay.presentation.bind(barry, 'friendly');
+barryFriendly('evening')
+
+
+function multiplyAll(arr) {
+  var product = 1;
+  // Only change code below this line
+  for (var i = 0; i < arr.length; i++) {
+    for(var j = 0; j < arr[i].length; j++) {
+      console.log(product *= arr[i][j]);
+    }
+  }
+  // Only change code above this line
+  return product;
+}
+
+// Modify values below to test your code
+multiplyAll([[1,2],[3,4],[5,6,7]]);
+
+
+
+//Setup
+var contacts = [
+  {
+      "firstName": "Akira",
+      "lastName": "Laine",
+      "number": "0543236543",
+      "likes": ["Pizza", "Coding", "Brownie Points"]
+  },
+  {
+      "firstName": "Harry",
+      "lastName": "Potter",
+      "number": "0994372684",
+      "likes": ["Hogwarts", "Magic", "Hagrid"]
+  },
+  {
+      "firstName": "Sherlock",
+      "lastName": "Holmes",
+      "number": "0487345643",
+      "likes": ["Intriguing Cases", "Violin"]
+  },
+  {
+      "firstName": "Kristian",
+      "lastName": "Vos",
+      "number": "unknown",
+      "likes": ["Javascript", "Gaming", "Foxes"]
+  }
+];
+
+function lookUpProfile(firstName, prop){
+  // Only change code below this line
+  var contact = contacts.find((x) => x.firstName === firstName);
+  contact
+  console.log(contact.hasOwnProperty(prop));
+  console.log(contact[prop])
+  return contact ? contact.hasOwnProperty(prop) ? contact[prop] : "No such property" : "No such contact";
+}
+
+// Change these values to test your function
+console.log(lookUpProfile("Akira", "likes"));

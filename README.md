@@ -23,3 +23,7 @@ DAY 9 - DevTools Domination Tips
 DAY 10 - Hold Shift to Check Multiple CheckBoxes
 
 DAY 11 - Custom HTML5 Video Player
+
+## DOM Manipulation Section
+
+DOM 1 - Task List
