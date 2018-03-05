@@ -27,3 +27,5 @@ DAY 11 - Custom HTML5 Video Player
 ## DOM Manipulation Section
 
 DOM 1 - Task List
+
+DOM 1 - Loan Calculator
