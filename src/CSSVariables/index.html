@@ -65,8 +65,8 @@
     function handleUpdate() {
       const suffix = this.dataset.sizing || ''; // select any data attribute suffix which is -sizing = px, etc. or if nothing fallback
       // console.log(suffix, this.name);
+      console.log(`--${this.name}`, this.value + suffix); // e.g --blur 9px
       document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
-
     }
 
     inputs.forEach(input => input.addEventListener('change', handleUpdate));
