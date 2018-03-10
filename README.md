@@ -28,4 +28,6 @@ DAY 11 - Custom HTML5 Video Player
 
 DOM 1 - Task List
 
-DOM 1 - Loan Calculator
+DOM 2 - Loan Calculator
+
+DOM 3 - Number Guesser
