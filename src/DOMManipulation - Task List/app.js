@@ -11,10 +11,10 @@ loadEventListeners();
 function loadEventListeners() {
   // DOM load event, Get task from localStorage
   document.addEventListener('DOMContentLoaded', getTasks);
-  // Add task event
+  // Add task event, when you press Enter it will add
   form.addEventListener('submit', addTask);
   // Remove task event
-  taskList.addEventListener('click',  removeTask);
+  taskList.addEventListener('click', removeTask);
   // Clear task event
   clearBtn.addEventListener('click', clearTasks);
   // Filter tasks
