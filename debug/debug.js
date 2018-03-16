@@ -208,3 +208,18 @@ function normalize() {
 // If I had written the argument to map using the function keyword, the code wouldn’t work.
 normalize.call({coords: [0, 2, 3], length: 5});
 
+const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
+
+const transportation = data.reduce((obj, item) => {
+  // if there's no object item exist in the list {} to work with at all
+  if (!obj[item]) {
+    // then set to 0, that will just set the initial one to zero
+    obj[item] = 0;
+  }
+  console.log(obj);
+  // then we can move along and increment it and return/add that to object (list {})
+  obj[item]++;
+  return obj;
+}, {}); // object as an initial 'cause we don't know if that key exist
+
+console.log(transportation);
