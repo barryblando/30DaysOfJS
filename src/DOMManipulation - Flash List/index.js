@@ -9,6 +9,7 @@ window.setInterval(function() {
 
   console.log(next.length);
   // if next.length not exist then set it to be the first one
+  // INFO: if we wouldn't do this it will stop at the last sibling
   if(!next.length) next = $('span.flash span:first');
 
   next.css('z-index', z); // add index
