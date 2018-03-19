@@ -213,6 +213,7 @@ const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bik
 const transportation = data.reduce((obj, item) => {
   // if there's no object item exist in the list {} to work with at all
   if (!obj[item]) {
+    console.log(`Object Found: ${item}`);
     // then set to 0, that will just set the initial one to zero
     obj[item] = 0;
   }

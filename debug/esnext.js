@@ -384,9 +384,9 @@ const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib']; */
 // for of in a function
 /* function addUpNumbers () {
   let total = 0;
-  // arguments is a special word that give array-ish output
-  // when you open up the console you can see that its prototype is Object not Array
-  // However you can iterate it with for of loop 'cause it has a symbol iterator
+  arguments is a special word that give array-ish output
+  when you open up the console you can see that its prototype is Object not Array
+  However you can iterate it with for of loop 'cause it has a symbol iterator
   for (const num of arguments) { // eslint-disable-line
     total += num;
   }
