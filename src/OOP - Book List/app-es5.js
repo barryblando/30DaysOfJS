@@ -61,6 +61,50 @@ UI.prototype.clearFields = function() {
   document.getElementById('isbn').value = '';
 }
 
+function Store() { }
+
+Store.prototype.getBooks = function() {
+  let books;
+  // if it's not there
+  if (localStorage.getItem('books') === null) {
+    books = [];
+  } else {
+    books = JSON.parse(localStorage.getItem('books'));
+  }
+
+  return books;
+}
+
+Store.prototype.displayBooks = function() {
+  const store = new Store();
+  const books = store.getBooks();
+    books.forEach(function(book) {
+    const ui = new UI;
+
+    // add book to UI
+    ui.addBookToList(book);
+  });
+}
+
+Store.prototype.addBook = function(book) {
+  const store = new Store();
+  const books = store.getBooks();
+  books.push(book);
+  localStorage.setItem('books', JSON.stringify(books));
+}
+
+Store.prototype.removeBook = function(isbn) {
+  const store = new Store();
+  const books = store.getBooks();
+  books.forEach(function(book, index) {
+    if(book.isbn === isbn) {
+      books.splice(index, 1);
+    }
+  });
+
+  localStorage.setItem('books', JSON.stringify(books));
+}
+
 // Event Listener for add book
 document.getElementById('book-form').addEventListener('submit', function(e) {
   // Get form values
@@ -71,16 +115,18 @@ document.getElementById('book-form').addEventListener('submit', function(e) {
   // Instantiate Book
   const book = new Book(title, author, isbn);
 
-  // Instantiate UI
+  // Instantiate UI & Store
   const ui = new UI();
+  const store = new Store();
 
   // Validate
   if (title === '' || author === '' || isbn === '') {
     // Error alert
     ui.showAlert('Please fill in all fields', 'error')
   } else {
-    // Add book to list
+    // Add book to list & LocalStorage
     ui.addBookToList(book);
+    store.addBook(book)
 
     // Show success
     ui.showAlert('Book Added!', 'success');
@@ -94,11 +140,13 @@ document.getElementById('book-form').addEventListener('submit', function(e) {
 
 // Event listener for delete book
 document.getElementById('book-list').addEventListener('click', function(e){
-  // Instantiate UI
+  // Instantiate UI & Store
   const ui = new UI();
+  const store = new Store();
 
-  // Delete book
+  // Delete from bookList & LocalStorage (using ISBN)
   ui.deleteBook(e.target);
+  store.removeBook(e.target.parentElement.previousElementSibling.textContent);
 
   // Show alert
   ui.showAlert('Book  Removed!', 'success');
