@@ -41,3 +41,7 @@ OOP 1 - Book List
 ## Asynchronous
 
 Async 1 - XHR SandBox
+
+Async 2 - AJAX Sandbox 1 - JSON File
+
+Async 3 - AJAX Sandbox 2 - External Web APIs
