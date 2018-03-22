@@ -45,3 +45,5 @@ Async 1 - XHR SandBox
 Async 2 - AJAX Sandbox 1 - JSON File
 
 Async 3 - AJAX Sandbox 2 - External Web APIs
+
+Async 4 - AJAX Sandbox 3 - REST APIs and HTTP Request
