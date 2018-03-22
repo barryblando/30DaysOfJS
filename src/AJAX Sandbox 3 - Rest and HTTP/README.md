@@ -17,7 +17,7 @@
   - OPTIONS: Returns the supported HTTP methods
   - PATCH: Update partial resources
 
-- **API Endpoints**
+- **API Endpoints** or **Routes**
 
   | **Request**                 | **URL**                                              | **Use**                             |
   | --------------------------- | ---------------------------------------------------- | ----------------------------------- |
