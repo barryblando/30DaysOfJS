@@ -38,7 +38,7 @@ DOM 4 - Random Flash List
 
 OOP 1 - Book List
 
-## Asynchronous
+## Asynchronous, APIs, HTTPs
 
 Async 1 - XHR SandBox
 
@@ -47,3 +47,5 @@ Async 2 - AJAX Sandbox 1 - JSON File
 Async 3 - AJAX Sandbox 2 - External Web APIs
 
 Async 4 - AJAX Sandbox 3 - REST APIs and HTTP Request
+
+Async 5 - Custom HTTP Library  - Ajax with callbacks
