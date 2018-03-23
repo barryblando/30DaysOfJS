@@ -49,3 +49,5 @@ Async 3 - AJAX Sandbox 2 - External Web APIs
 Async 4 - AJAX Sandbox 3 - REST APIs and HTTP Request
 
 Async 5 - Custom HTTP Library  - Ajax with callbacks
+
+Async 6 - AJAX Sandbox 4 - Ajax with promises

@@ -748,7 +748,7 @@ console.log(shirt);
 // Something that will happen in the future but probably not immediately.
 
 /* const postPromise = fetch('http://wesbos.com/wp-json/wp/v2/posts');
-// this .then will only run when the promise/data successfully comes back and then function will give us the data
+this .then will only run when the promise/data successfully comes back and then function will give us the data
 postPromise
   .then(data => data.json())
   .then(data => console.log(data))
@@ -757,9 +757,9 @@ postPromise
   }); */
 
 /*
-// Creating own Promise constructor
-// resolve - means it finishes and passes data back to you
-// reject - if there's an error or data was malformed, whatever the reason why to reject
+Creating own Promise constructor
+resolve - means it finishes and passes data back to you
+reject - if there's an error or data was malformed, whatever the reason why to reject
 
 const p = new Promise((resolve, reject) => {=
   setTimeout(() => {
