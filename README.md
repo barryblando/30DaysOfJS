@@ -48,10 +48,12 @@ Async 3 - AJAX Sandbox 2 - External Web APIs
 
 Async 4 - AJAX Sandbox 3 - REST APIs and HTTP Request
 
-Async 5 - Custom HTTP Library  - Ajax with callbacks
+Async 5 - Custom HTTP Library 1  - Ajax with callbacks
 
 Async 6 - AJAX Sandbox 4 - Ajax with promises
 
 Async 7 - Fetch API Sandbox w/ Arrow functions
 
-Async 8 - Custom HTTP Library 2 - Fetch with Promises and ES6 Class
+Async 8 - Custom HTTP Library 2 - Fetch with Promises and ES6 Classes
+
+Async 9 - Custom HTTP Library 3 - Fetch with Async/Await and ES6 Classes
