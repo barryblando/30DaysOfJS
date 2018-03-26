@@ -39,7 +39,7 @@ class EasyHTTP {
       },
       body: JSON.stringify(data) // data to send
     });
-   const resData = response.json();
+   const resData = await response.json();
    return resData;
   }
 
