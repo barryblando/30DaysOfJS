@@ -53,3 +53,5 @@ Async 5 - Custom HTTP Library  - Ajax with callbacks
 Async 6 - AJAX Sandbox 4 - Ajax with promises
 
 Async 7 - Fetch API Sandbox w/ Arrow functions
+
+Async 8 - Custom HTTP Library 2 - Fetch with Promises and ES6 Class
