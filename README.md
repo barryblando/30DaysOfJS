@@ -57,3 +57,7 @@ Async 7 - Fetch API Sandbox w/ Arrow functions
 Async 8 - Custom HTTP Library 2 - Fetch with Promises and ES6 Classes
 
 Async 9 - Custom HTTP Library 3 - Fetch with Async/Await and ES6 Classes
+
+## API Projects
+
+Project 1 - Github Finder
