@@ -61,3 +61,5 @@ Async 9 - Custom HTTP Library 3 - Fetch with Async/Await and ES6 Classes
 ## API Projects
 
 Project 1 - Github Finder
+
+Project 1 - Weather Report
