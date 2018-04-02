@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Spread Examples</title>
+</head>
+<body>
+  <div class="people">
+    <p>Wes</p>
+    <p>Kait</p>
+    <p>Randy</p>
+  </div>
+<script>
+  // transform node list to array using array.from so we can use map
+  const people = Array.from(document.querySelectorAll('.people p'));
+  const names = people.map((person) => person.textContent );
+
+  const deepDish = {
+    pizzaName: 'Deep Dish',
+    size: 'Medium',
+    ingredients: ['Marinara', 'Italian Sausage', 'Dough', 'Cheese']
+  };
+
+  const shoppingList = ['Milk', 'Flour', ...deepDish.ingredients];
+  // console.log(shoppingList);
+
+  const comments = [
+    { id: 209384, text: 'I love your dog!' },
+    { id: 523423, text: 'Cuuute! 🐐' },
+    { id: 632429, text: 'You are so dumb' },
+    { id: 192834, text: 'Nice work on this wes!' },
+  ];
+  const id = 632429;
+
+  const commentIndex = comments.findIndex(comment => comment.id === id);
+  // we don't want array of arrays we want array of comments object, so we'll use spread to concat all array
+  // starts at 0, go until we hit the comment index, start at comment index + 1, (no 2nd argument) 'cause that will just go 'til the end of the comments array
+  const newComments = [...comments.slice(0, commentIndex), ...comments.slice(commentIndex + 1)];
+  console.log(newComments);
+
+</script>
+</body>
+</html>

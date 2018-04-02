@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tagged Templates</title>
+  <style>
+    .hl {
+      background: #ffc600;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+<script>
+  // <reference https://alligator.io/js/tagged-template-literals/
+  // <reference https://medium.freecodecamp.org/es6-tagged-template-literals-48a70ef3ed4d
+  // <reference https://appendto.com/2017/02/advanced-javascript-es2015-template-strings-with-tagged-templates/
+  // When doing templating tagging the first argument in the function is always string array from literals and second is the interpolated values
+  function highlight(strings, ...values) {
+    let str = '';
+    // fisrt arg is always 1 bigger than second arg even if you put value after last string. if no values anymore after the last string put empty
+    strings.forEach((string, i) => {
+      str += `${string}<span contenteditable class="hl">${values[i] || ''}</span>`;
+    });
+    return str;
+    // debugger; // use this to debug this function in chrome console source
+  }
+
+  const name = 'Snickers';
+  const age = 100;
+
+  const sentence = highlight`My dog's name is ${name} and he is ${age} years old`;
+  document.body.innerHTML = sentence;
+  console.log(sentence);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The ...Spread Operator</title>
+  <style>
+    body {
+      min-height: 100vh;
+      font-family: sans-serif;
+      background: #ffc600;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      letter-spacing: 20px;
+      font-size: 50px;
+      color:white;
+      text-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+    }
+
+    .jump span {
+      position: relative;
+      /* before you can translateY (via transition: transform) a span make sure to make it inline-block */
+      display: inline-block;
+      transition: transform 0.1s;
+      cursor:url('http://csscursor.info/source/santahand.png'), default;
+    }
+
+    .jump span:hover {
+      /* make sure span is inline-block before doing translateY 'cause you can't translateY on the inline element */
+      transform:translateY(-20px) scale(2) rotate(10deg);
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <p>Hello, <h2 class="jump">BARRY!</h2></p>
+
+<script>
+  const heading = document.querySelector('.jump');
+  // get the text content of h2, wrap each letter on a span, and inject it back inside h2
+  heading.innerHTML = spanWrap(heading.textContent);
+
+  function spanWrap(word) {
+    // each one will be wrap in a span and return but we don't want an array result we want a string so we just call join on the end
+    console.log([...word].map(letter => `${letter}`));
+    return [...word].map(letter => `<span>${letter}</span>`).join('');
+  }
+</script>
+</body>
+</html>

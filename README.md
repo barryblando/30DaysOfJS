@@ -63,3 +63,19 @@ Async 9 - Custom HTTP Library 3 - Fetch with Async/Await and ES6 Classes
 Project 1 - Github Finder
 
 Project 1 - Weather Report
+
+## Mini Projects
+
+MP 1 - arrayImprovements
+
+MP 2 - arrowExercise
+
+MP 3 - boxOpening
+
+MP 4 - splitScreenSlider
+
+MP 5 - SpreadAndRest
+
+MP 6 - templateStrings
+
+MP 7 - templateTagged

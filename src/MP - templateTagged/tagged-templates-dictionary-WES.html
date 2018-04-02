@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tagged Templates</title>
+  <style>
+    abbr {
+      border-bottom:1px dotted grey;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bio">
+
+  </div>
+
+<script>
+  const dict = {
+    HTML: 'Hyper Text Markup Language',
+    CSS: 'Cascading Style Sheets',
+    JS: 'JavaScript'
+  };
+
+  function addAbbreviations(strings, ...values) {
+    const abbreviated = values.map(value => {
+      // dict['HTML'], so on.. and return its dictionary
+      if(dict[value]) {
+        return `<abbr title="${dict[value]}">${value}</abbr>`;
+      }
+      // if value doesn't on the dict list return the current value
+      return value;
+    });
+    // reduce((prev, cur, index)
+    return strings.reduce((sentence, string, i) => {
+      return `${sentence}${string}${abbreviated[i] || ''}`;
+      // console.log `${sentence}${string}${abbreviated[i] || ''}`;
+      // debugger;
+    }, '');
+  }
+
+  const first = 'Wes';
+  const last = 'Bos';
+  const sentence = addAbbreviations`Hello my name is ${first} ${last} and I love to code ${'HTML'}, ${'CSS'} and ${'JS'}`;
+
+  const bio = document.querySelector('.bio');
+  const p = document.createElement('p');
+  p.innerHTML = sentence;
+  bio.appendChild(p);
+
+</script>
+</body>
+</html>
