@@ -10,9 +10,10 @@ easyHTTP.prototype.get = function(url, callback) {
   this.http.onload = function() {
     if (self.http.status === 200) {
       // put it to callback so it would wait asynchronously
-      // send back error if there's one using null
+      // null if there's no error
       callback(null, self.http.responseText);
     } else {
+       // send back error if there's one using node standard callback convention
       callback(`Error: ${self.http.status}`);
     }
   }
@@ -27,8 +28,6 @@ easyHTTP.prototype.post = function(url, data, callback) {
 
   let self = this;
   this.http.onload = function() {
-    // put it to callback so it would wait asynchronously
-    // send back error if there's one using null
     callback(null, self.http.responseText);
   }
 
@@ -42,8 +41,6 @@ easyHTTP.prototype.put = function(url, data, callback) {
 
   let self = this;
   this.http.onload = function() {
-    // put it to callback so it would wait asynchronously
-    // send back error if there's one using null
     callback(null, self.http.responseText);
   }
 
@@ -57,8 +54,6 @@ easyHTTP.prototype.delete = function(url, callback) {
   let self = this;
   this.http.onload = function() {
     if (self.http.status === 200) {
-      // put it to callback so it would wait asynchronously
-      // send back error if there's one using null
       callback(null, 'Post Deleted.');
     } else {
       callback(`Error: ${self.http.status}`);
