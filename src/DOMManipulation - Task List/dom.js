@@ -144,3 +144,25 @@ val = listItem.previousSibling;
 val = listItem.previousElementSibling;
 
 console.log(val);
+
+// CreateTextNode and textContent
+
+/*
+  It 's not really matter of advantage but of proper usage depending on the need.
+
+  The fundamental difference is that:
+
+  - createTextNode() is a method and works just as its name says: it creates an element...
+    then you must do something with it (where you append a child);
+    so it is useful if you want to have a new element and place it somewhere:
+
+    var my_text = document.createTextNode('Hello!');
+    span.appendChild(my_text);
+
+    then it will end with: <span>Original textHello!</span>, because you appended your textNode.
+
+  - textContent is a property you may get or set, with a unique statement and nothing else;
+    so it is useful when you only want to change the content of an already existing element
+    Now in the precise case of your question, you said you want to change the text of the element...
+    To be more clear say you have the following HTML element: <span>Original text</span>
+*/
