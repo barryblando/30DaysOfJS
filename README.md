@@ -64,6 +64,12 @@ Project 1 - Github Finder
 
 Project 1 - Weather Report
 
+## Regular Expressions & Project
+
+RE 1 - RegularExpression Sandbox
+
+RE 2 - Form Validation Project
+
 ## Mini Projects
 
 MP 1 - arrayImprovements
