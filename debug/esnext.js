@@ -871,22 +871,5 @@ Promise
     console.log(responses);
   });
 
-// Sixth Primitive Data Type : Symbols generating unique identifier Symbol(descriptor)
-// </reference https://javascript.info/symbol
-
-// if you ever store some private data or want to make sure your keys in your object are absolutely unique that's when you reach for a symbol
-// symbols aren't the actual object, symbols are just the property keys
-const classRoom = {
-  [Symbol('Mark')]: { grade: 50, gender: 'male' },
-  [Symbol('Olivia')]: { grade: 80, gender: 'female' },
-  [Symbol('Olivia')]: { grade: 80, gender: 'female' },
-};
-
-// Symbols are not enumerable means that we cannot loop over them and access its data unless use object get own property and map
-
-const syms = Object.getOwnPropertySymbols(classRoom);
-const data = syms.map(sym => classRoom[sym]);
-console.log(data);
-
 const peopleS = new Set(); // a Set is to arrays
 const peopleM = new Map(); // a Map is to Object
