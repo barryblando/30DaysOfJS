@@ -85,3 +85,5 @@ MP 5 - SpreadAndRest
 MP 6 - templateStrings
 
 MP 7 - templateTagged
+
+MP 8 - Profile Scroller w/ ES6 Generator/Iterator
