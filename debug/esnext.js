@@ -763,20 +763,70 @@ Promise
   });
  */
 
-const postsPromise = fetch('http://wesbos.com/wp-json/wp/v2/posts');
-const streetCarsPromise = fetch('http://data.ratp.fr/api/datasets/1.0/search/?q=paris');
+// const postsPromise = fetch('http://wesbos.com/wp-json/wp/v2/posts');
+// const streetCarsPromise = fetch('http://data.ratp.fr/api/datasets/1.0/search/?q=paris');
 
-Promise
-  .all([postsPromise, streetCarsPromise]) // pass it both our initial promises
-  .then(responses => Promise.all(responses.map(res => res.json()))) // when those come back, we run .json() on all of them
+// Promise
+//   .all([postsPromise, streetCarsPromise]) // pass it both our initial promises
+//   .then(responses => Promise.all(responses.map(res => res.json()))) // when those come back, we run .json() on all of them
   // convert body:ReadableStream(the postsPromise & streetCarsPromise) into JSON
   // don't just assume that the APIs or AJAX requests are always going to be json, 'cause it could be any type of data [blob(), text(), formData(), json()]
   // this responses in array and map takes every item out of array, does something to it, and then returns a new array
   // we're taking the array of responses and taking each one and calling .json() on it which returns a second promise, which we can call .then on
   // return Promise.all(responses.map(res => res.json()))
-  .then((responses) => {
-    console.log(responses);
-  });
+  // .then((responses) => {
+  //   console.log(responses);
+  // });
 
-const peopleS = new Set(); // a Set is to arrays
-const peopleM = new Map(); // a Map is to Object
+const set1 = new Set(); // a Set is to arrays
+const map1 = new Map(); // a Map is to Object - can use ANY type as a key or value
+
+// Set Keys
+const key1 = 'some string',
+      key2 = {},
+      key3 = function() {};
+
+// Set map values by key
+map1.set(key1, 'Value of key1');
+map1.set(key2, 'Value of key2');
+map1.set(key3, 'Value of key3');
+
+// Get values by key
+console.log(map1.get(key1), map1.get(key2), map1.get(key3));
+
+// Count values
+console.log(map1.size);
+
+// -- Loop using for...of to get keys and values --
+for (let [key, value] of map1) {
+  console.log(`${key} = ${value}`);
+}
+
+// Iterate keys only
+for (let key of map1.keys()) {
+  console.log(`${key}`);
+}
+
+// Iterate values only
+for (let value of map1.values()) {
+  console.log(`${value}`);
+}
+
+// -- Loop using forEach --
+map1.forEach(function(value, key) {
+  console.log(`${key} = ${value}`);
+});
+
+// CONVERT TO ARRAY using Array.from
+
+// Crate an array of the key value pairs
+const keyValArr = Array.from(map1);
+console.log(keyValArr);
+
+// Create an array of the key
+const keyArr = Array.from(map1.keys());
+console.log(keyArr);
+
+// Create an array of the values
+const valArr = Array.from(map1.values());
+console.log(valArr);
