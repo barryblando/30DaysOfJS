@@ -31,6 +31,9 @@
 
 // Catching Async Await Error using Error Handler Factory (High Order Function) DRY code
 // </reference https://codeburst.io/async-await-saves-the-day-sort-of-738e6b1cde64
+// </reference https://medium.com/mofed/javascripts-recursive-closure-and-curry-functions-3c44e1b73158\
+// </reference https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36
+// </reference https://javascript.info/currying-partials
 
 function breathe(amount) {
   return new Promise((resolve, reject) => {
@@ -42,6 +45,7 @@ function breathe(amount) {
 }
 
 function catchErrors(fn) {
+  /** CLOSURE **/
   // using rest to capture all the parameters into an array
   return function(...params) {
     // using spread to all those parameters immediately back into the function
@@ -64,6 +68,6 @@ async function go(name, last) {
   console.log(res4);
 }
 
-// Function Currying - </reference https://javascript.info/currying-partials
+/** CURRYING **/
 const wrappedFunction = catchErrors(go);
 wrappedFunction('Barry', 'Blando')
