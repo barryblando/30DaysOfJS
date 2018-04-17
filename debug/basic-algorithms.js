@@ -54,3 +54,12 @@ function largestOfFour(mainArray) {
 }
 
 console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]));
+
+// INFO: Longest String in Array
+function longestString(arrayStr) {
+  const longestArray = arrayStr.sort(str => str.length).map(str => str.length)[0]; // Get first index to tack/fill blank characters in padStart
+  console.log(longestArray);
+  arrayStr.forEach(str => console.log(str.padStart(longestArray)));
+}
+
+longestString(['short', 'medium size', 'this is really really long', 'this is really really really really long']);

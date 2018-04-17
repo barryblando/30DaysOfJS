@@ -684,62 +684,62 @@ p
 
 // </reference https://stackoverflow.com/questions/29824908/what-does-dehydrate-and-rehydrate-stand-for-in-fluxible
 
-const posts = [
-  { title: 'I love Javascript', author: 'Wes Bos', id: 1 },
-  { title: 'CSS!', author: 'Barry Blando', id: 2 },
-  { title: 'Dev tools tricks', author: 'Addy Osmani', id: 3 },
-];
+// const posts = [
+//   { title: 'I love Javascript', author: 'Wes Bos', id: 1 },
+//   { title: 'CSS!', author: 'Barry Blando', id: 2 },
+//   { title: 'Dev tools tricks', author: 'Addy Osmani', id: 3 },
+// ];
 
-const authors = [
-  { name: 'Wes Bos', twitter: '@wesbos', bio: 'Canadian Developer' },
-  { name: 'Barry Blando', twitter: '@Retr0_0x315', bio: 'Filipino Developer' },
-  { name: 'Addy Osmani', twitter: '@addyosmani', bio: 'Googler' },
-];
+// const authors = [
+//   { name: 'Wes Bos', twitter: '@wesbos', bio: 'Canadian Developer' },
+//   { name: 'Barry Blando', twitter: '@Retr0_0x315', bio: 'Filipino Developer' },
+//   { name: 'Addy Osmani', twitter: '@addyosmani', bio: 'Googler' },
+// ];
 
-function getPostById(id) {
-  // create new promise
-  return new Promise(((resolve, reject) => {
-    // using a set timeout to mimic a database
-    setTimeout(() => {
-      // find  the post we want
-      const pst = posts.find(post => post.id === id);
-      if (pst) {
-        resolve(pst); // send the post back
-      } else {
-        reject(Error('No post was found!'));
-      }
-    });
-  }));
-}
+// function getPostById(id) {
+//   // create new promise
+//   return new Promise(((resolve, reject) => {
+//     // using a set timeout to mimic a database
+//     setTimeout(() => {
+//       // find  the post we want
+//       const pst = posts.find(post => post.id === id);
+//       if (pst) {
+//         resolve(pst); // send the post back
+//       } else {
+//         reject(Error('No post was found!'));
+//       }
+//     });
+//   }));
+// }
 
 
 // going to take in the Post
-function hydrateAuthor(post) {
-  // create new promise
-  return new Promise((resolve, reject) => {
-    // find the author
-    const authorDetails = authors.find(person => person.name === post.author);
-    if (authorDetails) {
-      // "hydrate" the post object with the author object
-      post.author = authorDetails;
-      resolve(post); // send the post back
-    } else {
-      reject(Error('Can\'t find the author.'));
-    }
-  });
-}
+// function hydrateAuthor(post) {
+//   // create new promise
+//   return new Promise((resolve, reject) => {
+//     // find the author
+//     const authorDetails = authors.find(person => person.name === post.author);
+//     if (authorDetails) {
+//       // "hydrate" the post object with the author object
+//       post.author = authorDetails;
+//       resolve(post); // send the post back
+//     } else {
+//       reject(Error('Can\'t find the author.'));
+//     }
+//   });
+// }
 
-getPostById(2)
-  .then((post) => { // once the post come back in this first one right here we're gonna call hydrateAuthor and pass it the post
-    console.log(post);
-    return hydrateAuthor(post); // this function is going to return a Promise itself
-  })
-  .then((post) => {
-    console.log(post);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// getPostById(2)
+//   .then((post) => { // once the post come back in this first one right here we're gonna call hydrateAuthor and pass it the post
+//     console.log(post);
+//     return hydrateAuthor(post); // this function is going to return a Promise itself
+//   })
+//   .then((post) => {
+//     console.log(post);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 
 // Multiple Promises
 
@@ -778,8 +778,11 @@ Promise
   //   console.log(responses);
   // });
 
-const set1 = new Set(); // a Set is to arrays
-const map1 = new Map(); // a Map is to Object - can use ANY type as a key or value
+// ----------------------------------------------------------------
+//  MAPS - a Map is to Object - can use ANY type as a key or value
+// ----------------------------------------------------------------
+
+const map1 = new Map();
 
 // Set Keys
 const key1 = 'some string',
@@ -790,6 +793,10 @@ const key1 = 'some string',
 map1.set(key1, 'Value of key1');
 map1.set(key2, 'Value of key2');
 map1.set(key3, 'Value of key3');
+
+const map2 = new Map([[ 'some string', 'Value of key1'],[ {}, 'Value of key1'], [ function(){}, 'Value of key1']]);
+
+console.log(map2);
 
 // Get values by key
 console.log(map1.get(key1), map1.get(key2), map1.get(key3));
@@ -830,3 +837,49 @@ console.log(keyArr);
 // Create an array of the values
 const valArr = Array.from(map1.values());
 console.log(valArr);
+
+// ----------------------------------------------------------------
+//  SETS - a Set is to arrays - Store unique values of any type
+// ----------------------------------------------------------------
+
+const set1 = new Set();
+
+// Add values to set
+set1.add(100);
+set1.add('A string');
+set1.add({ name: 'Bar' });
+set1.add(true);
+
+const set2 = new Set([1, true, 'string']);
+
+console.log(set2);
+
+// Get count
+console.log(set1.size);
+
+// Check for values
+console.log(set1.has(100));
+console.log(set1.has(50 + 50));
+console.log(set1.has({name: 'John'})) // false, cause is object is not a primitive type like number / string
+console.log({name: 'John'} === {name: 'John'}); // false, cause save in another location of memory
+
+
+// Delete from set
+set1.delete(100);
+console.log(set1);
+
+// Iterate through SETS
+
+// For..of
+for (let item of set1) {
+  console.log(item)
+}
+
+// ForEach
+set1.forEach((value) => {
+  console.log(value);
+});
+
+// CONVERT SET TO ARRAY
+const setArray = Array.from(set1);
+console.log(setArray);
