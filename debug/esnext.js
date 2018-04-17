@@ -883,3 +883,15 @@ set1.forEach((value) => {
 // CONVERT SET TO ARRAY
 const setArray = Array.from(set1);
 console.log(setArray);
+
+// --------------------------------------------
+// ES7 / ES2016
+// - .includes
+// - Exponential Operator **
+// --------------------------------------------
+
+console.log(['a', 'b', 'c'].includes('c')); // true
+
+// Case: When you use Math.pow() you can't put a 3rd argument, it will just ignore third one
+console.log(Math.pow(2, 2, 2)); // 4
+console.log(2**2**2); // 16
