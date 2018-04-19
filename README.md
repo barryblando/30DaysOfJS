@@ -87,3 +87,16 @@ MP 6 - templateStrings
 MP 7 - templateTagged
 
 MP 8 - Profile Scroller w/ ES6 Generator/Iterator
+
+## JAVASCRIPT DESIGN PATTERNS
+
+**Creational Patterns:**
+
+- [Factory Method](http://www.dofactory.com/javascript/factory-method-design-pattern): Creates an instance of several derived classes
+- [Singleton](http://www.dofactory.com/javascript/singleton-design-pattern): A class of which only a single instance can exist
+
+**Behavioral Patterns:**
+
+- [Mediator](http://www.dofactory.com/javascript/mediator-design-pattern): Defines simplified communication between classes
+- [Observer](http://www.dofactory.com/javascript/observer-design-pattern): A way of notifying change to a number of classes
+- [State](http://www.dofactory.com/javascript/state-design-pattern): Alter an object's behavior when its state changes
