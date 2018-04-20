@@ -88,7 +88,7 @@ MP 7 - templateTagged
 
 MP 8 - Profile Scroller w/ ES6 Generator/Iterator
 
-## JAVASCRIPT DESIGN PATTERNS
+## JAVASCRIPT DESIGN PATTERNS & PROJECT
 
 **Creational Patterns:**
 
@@ -100,3 +100,9 @@ MP 8 - Profile Scroller w/ ES6 Generator/Iterator
 - [Mediator](http://www.dofactory.com/javascript/mediator-design-pattern): Defines simplified communication between classes
 - [Observer](http://www.dofactory.com/javascript/observer-design-pattern): A way of notifying change to a number of classes
 - [State](http://www.dofactory.com/javascript/state-design-pattern): Alter an object's behavior when its state changes
+
+**Project:**
+
+- Tracalorie
+
+- Budgety
