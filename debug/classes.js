@@ -1,3 +1,11 @@
+
+
+/**
+ * </ref:https://medium.com/javascript-scene/master-the-javascript-interview-what-s-the-difference-between-class-prototypal-inheritance-e4cd0a7562e9
+ * by: Eric Elliott
+ * @class Person
+ */
+
 class Person {
   constructor(firstName, lastName, dob) {
     this.firstName = firstName;
@@ -60,7 +68,7 @@ function Healer(name, level, spell) {
   this.spell = spell;
 }
 
-// Link prototypes and add prototype methods
+// Inherit/Link Hero prototypes and add prototype methods
 Warrior.prototype = Object.create(Hero.prototype);
 Healer.prototype = Object.create(Hero.prototype);
 
