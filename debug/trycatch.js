@@ -34,6 +34,7 @@
 // </reference https://medium.com/mofed/javascripts-recursive-closure-and-curry-functions-3c44e1b73158\
 // </reference https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36
 // </reference https://javascript.info/currying-partials
+// </reference https://community.risingstack.com/explaining-javascript-closure-scope-chain-examples/
 
 function breathe(amount) {
   return new Promise((resolve, reject) => {
