@@ -140,11 +140,11 @@ var budgetController = (function() {
     this.value = value;
   };
 
-  // Do data structure in controller to keep track all of the Expenses, Income and the Budget itlsef, percentages too.
+  // Do data structure in controller to keep track all of the Expenses, Income and the Budget itself, percentages too.
   /**
    * store all expenses in array and also for Income
    * we can somehow aggregate a lot of information into one nice data structure
-   * it's always better to have one data structure where all the data goes 7426462!lastpasvariables flowing around
+   * it's always better to have one data structure where all the data goes flowing around
    */
 
   //private data
@@ -298,7 +298,7 @@ var UIController = (function() {
      * Sample 2310.4567 -> + 2,310.46
      */
 
-    //absolute simple removes the sign off the number, let's use the same num 'cause it's only a regular variable, so I'm basically overriding the num argument.
+    //absolute simply removes the sign off the number, let's use the same num 'cause it's only a regular variable, so I'm basically overriding the num argument.
      num = Math.abs(num);
      //Use toFixed method from Number prototype, js automatically converts primitive to object if we want.
      num = num.toFixed(2);
@@ -476,12 +476,12 @@ var APPController = (function(budgetCtrl, UICtrl) {
   var ctrlAddItem = function() {
     var input, newItem;
     // TODO : Get the field input data
-    input = UIController.getInput();
+    input = UICtrl.getInput();
 
     //isNaN = is not a number is to true, we'll use the not operator ! to make it false so we can get true if it is a number
     if (input.description !== '' && !isNaN(input.value) && input.value > 0) {
       // TODO: Add the item to the budget controller
-      newItem = budgetController.addItem(input.type, input.description, input.value);
+      newItem = budgetCtrl.addItem(input.type, input.description, input.value);
 
       // TODO: Add the New item to the UI
       UICtrl.addListItem(newItem, input.type);
@@ -528,7 +528,7 @@ var APPController = (function(budgetCtrl, UICtrl) {
 
   /** SETUP EVENT LISTENERS  **/
   var setupEventListeners = function() {
-    var DOM = UIController.getDOMstrings();
+    var DOM = UICtrl.getDOMstrings();
 
     document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem);
 
