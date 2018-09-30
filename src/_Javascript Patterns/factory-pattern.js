@@ -46,6 +46,8 @@ members.push(factory.createMember('John Doe', 'simple'));
 members.push(factory.createMember('Chris Redfield', 'super'));
 members.push(factory.createMember('Claire Redfield', 'standard'));
 
+console.log(factory.createMember('Barry', 'super').define());
+
 members.forEach(function(member) {
   member.define();
 });
