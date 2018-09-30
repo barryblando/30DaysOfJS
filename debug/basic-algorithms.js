@@ -27,7 +27,7 @@ function palindrome(str) {
 
 console.log(palindrome("eye"));
 
-// INFO: Find Longest  Word
+// INFO: Find Longest Word
 function findLongestWord(str) {
   return str.split(' ').reduce((longW, currentW) => currentW.length > longW.length ? currentW : longW, "").length;
 }
@@ -63,3 +63,5 @@ function longestString(arrayStr) {
 }
 
 longestString(['short', 'medium size', 'this is really really long', 'this is really really really really long']);
+
+// </reference https://medium.com/@sonya.moisset

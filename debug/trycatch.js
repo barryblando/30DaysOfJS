@@ -46,10 +46,9 @@ function breathe(amount) {
 }
 
 function catchErrors(fn) {
-  /** CLOSURE **/
-  // using rest to capture all the parameters into an array
+  // using rest operator to gather all the parameters into an array
   return function(...params) {
-    // using spread to all those parameters immediately back into the function
+    // using spread operator to spread all those in list context out into individual values
     return fn(...params).catch((err) => { // go returns promise so you can always just tack on a .catch on the end
       console.error('Ohh Nooo!!!!');
       console.error(err);
