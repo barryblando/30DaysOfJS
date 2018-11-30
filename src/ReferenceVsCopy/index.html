@@ -36,9 +36,15 @@
 
     // oh no - we have edited the original array too!
 
-    // Why? It's because that is an array reference, not an array copy. They both point to the same array!
+    // Why? It's because that is an array reference, not an array copy/primitive. They both point to the same array!
 
-    // So, how do we fix this? We take a copy instead!
+    // Reference values stored on heap memory unlike primitive values that's stored in stack memory but creates copy
+
+    // Heap takes a little bit longer to be accessed but therefore it is able to hold much information unlike Stack that is short living
+
+    // https://academind.com/learn/javascript/reference-vs-primitive-values/
+
+    // So, how do we fix this? We take a copy instead! of the old array using argument-free slice and put into new one
     const team2 = players.slice();
 
     // one day
@@ -74,7 +80,9 @@
     // We will hopefully soon see the object ...spread
     // const cap3 = {...person};
 
-    // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it. Properties on the prototype chain and non-enumerable properties cannot be copied
+    // Properties on the prototype chain and non-enumerable properties cannot be copied.
+
+    // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
 
     const wes = {
       name: 'Wes',
