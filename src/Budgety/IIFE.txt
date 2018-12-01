@@ -1,0 +1,47 @@
+/**
+ *
+  //Using IIFE for data privacy 'cause it creates a new scope that is not visible from the outside scope
+  //and automatically executed when run
+  var budgetController = (function() { //javascript runtime this line here gets executed and this anonymous function is declared and immediately called/invoked 'cause of the operator () in last line of function body
+    'use strict';
+    //private x and add function, these are in closures even after this IIFE here has returned
+    var x = 23;
+    var add = function(a) {
+      return x + a;
+    };
+
+    //return an object that contains the method that we called publicTest
+    //budgetController is an object containing the method called publicTest
+    return {
+      publicTest: function(b) { //this function that we return here will always have access to the x variable and add function 'cause of closure, only publicTest can access them
+        return add(b);
+      }
+    };
+  })();
+
+  var UIController = (function() {
+    'use strict';
+
+  })();
+
+  //Controls the budgetController nad UIController
+  var appController = (function(budgetCtrl, UICtrl) {
+    'use strict';
+
+    //store in a variable
+    var z = budgetCtrl.publicTest(5); //Good code practice
+    // budgetController.publicTes(); <-- Bad code practice
+
+    //create again a public
+    return {
+      anotherPublic: function() {
+        console.log(z);
+      }
+    };
+
+  })(budgetController, UIController);
+  */
+
+/**
+ * BUDGET CONTROLLER
+ */

@@ -1,0 +1,61 @@
+ /**
+  * Modules: {
+      - Important aspect of any robust application's architecture
+      - Keep the units of code for a project both cleanly separated and organized;
+      - Encapsulate some data into privacy and expose other publicly
+      - Break up our code into logical parts which are the modules and then make them interact with one another,
+        inside of separate, independent, and organized units.
+  }
+  * TASK LIST [Planning Step 1]
+
+    * UI MODULE [ VIEW ]: {
+      TODO: Get Input Values
+      TODO: Add the New Item to the UI
+      TODO: Update the UI
+    }
+
+    * DATA MODULE [ MODEL ]: {
+      TODO: Add the new Item to Our Data Structure
+      TODO: Calculate Budget
+    }
+
+    //Control the Entire App and acting as a link
+    * CONTROLLER MODULE [ CONTROLLER ]: {
+      TODO: Add Event Handler
+    }
+
+    * Module Pattern: { Private and Public Data, Encapsulation and Separation of Concerns }
+    * MP Secret is that it returns an object containing all of the functions that we want to be public to access.
+    * Data Encapsulation allows us to hide the implementation details of a specific module from the outside scope so that we only expose a public interface which is sometimes called an API.
+    * Separation of Concern is that each part of the application should only be interested in doing one thing independently
+
+  * TASK LIST [Planning Step 2]
+
+    * TODO: Add Event Handler
+    * TODO: Delete the Item from our Data Structure
+    * TODO: Delete the Item to the UI
+    * TODO: Re-calulate budget
+    * TODO: Update the UI
+
+    * Event Delegation P.S Important part in JS when it comes manipulating DOM
+      * Event Bubbling - When an event is fired or triggered will also be fired on all the parent elements
+      * on at a time in a DOM tree until the HTML element which is the root and event that cause to happen is called
+      * Target Element (e.g Button, etc) - this element is a property in the event object, this means that all the parent elements on which the event will also fire,
+      * will know the target element of the element, which brings event bubbling to the Event Delegation in DOM tree
+      * and if know where the event was fired you can simply attach an event handler to a parent element and wait for the event to bubble up,
+      * and do whatever you intended to do with the target element.
+      * Event Delegation - is to not set up the event handler on the original element that you're interested in,
+      * but to attach it to a parent element, basically catch the event there because it bubbles up, and act on the element that you're interested in using the target element property.
+
+      * Use Cases for Event Delegation
+        - When you have an element with lots of child elements that you're interested in;
+        - When you want an event handler attached to an element that is not yet in DOM when our page is loaded.
+
+  * TASK LIST [Planning Step 3]
+    * TODO: Calculate Percentages in Expense Column
+    * TODO: Update Percentages in Expense UI
+    * TODO: Display the Current Month and Year
+    * TODO: Number Formatting
+    * TODO: Improve input field UX
+
+  */
