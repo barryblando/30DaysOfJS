@@ -77,6 +77,7 @@ function addTask(e) {
   // Clear input
   taskInput.value = '';
 
+  // Now some JavaScript — here we implement a very simple check inside an onsubmit event handler (the submit event is fired on a form when it is submitted) that tests whether the text fields are empty. If they are, we call the preventDefault() function on the event object — which stops the form submission — and then display an error message in the paragraph below our form to tell the user what's wrong.
   e.preventDefault(); // prevent default behavior
 }
 
@@ -93,6 +94,7 @@ function storeTaskInLocalStorage(task) {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
+// Here you can see that we are including an event object, e, in the function, and in the function removing task on e.target — which is the element itself. The target property of the event object is always a reference to the element that the event has just occurred upon.
 function removeTask(e) {
   console.log(e);
   console.log(e.target)
