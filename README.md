@@ -24,6 +24,14 @@ DAY 10 - Hold Shift to Check Multiple CheckBoxes
 
 DAY 11 - Custom HTML5 Video Player
 
+DAY 12 - Key Sequence Detection
+
+DAY 13 - Slide In on Scroll
+
+DAY 14 - Object and Arrays - Reference VS Copy
+
+DAY 15 - LocalStorage and Event Delegation
+
 ## DOM Manipulation Section
 
 DOM 1 - Task List
