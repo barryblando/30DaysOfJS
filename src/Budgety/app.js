@@ -1,119 +1,9 @@
- /**
-  * Modules: {
-      - Important aspect of any robust application's architecture
-      - Keep the units of code for a project both cleanly separated and organized;
-      - Encapsulate some data into privacy and expose other publicly
-      - Break up our code into logical parts which are the modules and then make them interact with one another,
-        inside of separate, independent, and organized units.
-  }
-  * TASK LIST [Planning Step 1]
-
-    * UI MODULE [ VIEW ]: {
-      TODO: Get Input Values
-      TODO: Add the New Item to the UI
-      TODO: Update the UI
-    }
-
-    * DATA MODULE [ MODEL ]: {
-      TODO: Add the new Item to Our Data Structure
-      TODO: Calculate Budget
-    }
-
-    //Control the Entire App and acting as a link
-    * CONTROLLER MODULE [ CONTROLLER ]: {
-      TODO: Add Event Handler
-    }
-
-    * Module Pattern: { Private and Public Data, Encapsulation and Separation of Concerns }
-    * MP Secret is that it returns an object containing all of the functions that we want to be public to access.
-    * Data Encapsulation allows us to hide the implementation details of a specific module from the outside scope so that we only expose a public interface which is sometimes called an API.
-    * Separation of Concern is that each part of the application should only be interested in doing one thing independently
-
-  * TASK LIST [Planning Step 2]
-
-    * TODO: Add Event Handler
-    * TODO: Delete the Item from our Data Structure
-    * TODO: Delete the Item to the UI
-    * TODO: Re-calulate budget
-    * TODO: Update the UI
-
-    * Event Delegation P.S Important part in JS when it comes manipulating DOM
-      * Event Bubbling - When an event is fired or triggered will also be fired on all the parent elements
-      * on at a time in a DOM tree until the HTML element which is the root and event that cause to happen is called
-      * Target Element (e.g Button, etc) - this element is a property in the event object, this means that all the parent elements on which the event will also fire,
-      * will know the target element of the element, which brings event bubbling to the Event Delegation in DOM tree
-      * and if know where the event was fired you can simply attach an event handler to a parent element and wait for the event to bubble up,
-      * and do whatever you intended to do with the target element.
-      * Event Delegation - is to not set up the event handler on the original element that you're interested in,
-      * but to attach it to a parent element, basically catch the event there because it bubbles up, and act on the element that you're interested in using the target element property.
-
-      * Use Cases for Event Delegation
-        - When you have an element with lots of child elements that you're interested in;
-        - When you want an event handler attached to an element that is not yet in DOM when our page is loaded.
-
-  * TASK LIST [Planning Step 3]
-    * TODO: Calculate Percentages in Expense Column
-    * TODO: Update Percentages in Expense UI
-    * TODO: Display the Current Month and Year
-    * TODO: Number Formatting
-    * TODO: Improve input field UX
-
-  */
-
-/**
- *
-  //Using IIFE for data privacy 'cause it creates a new scope that is not visible from the outside scope
-  //and automatically executed when run
-  var budgetController = (function() { //javascript runtime this line here gets executed and this anonymous function is declared and immediately called/invoked 'cause of the operator () in last line of function body
-    'use strict';
-    //private x and add function, these are in closures even after this IIFE here has returned
-    var x = 23;
-    var add = function(a) {
-      return x + a;
-    };
-
-    //return an object that contains the method that we called publicTest
-    //budgetController is an object containing the method called publicTest
-    return {
-      publicTest: function(b) { //this function that we return here will always have access to the x variable and add function 'cause of closure, only publicTest can access them
-        return add(b);
-      }
-    };
-  })();
-
-  var UIController = (function() {
-    'use strict';
-
-  })();
-
-  //Controls the budgetController nad UIController
-  var appController = (function(budgetCtrl, UICtrl) {
-    'use strict';
-
-    //store in a variable
-    var z = budgetCtrl.publicTest(5); //Good code practice
-    // budgetController.publicTes(); <-- Bad code practice
-
-    //create again a public
-    return {
-      anotherPublic: function() {
-        console.log(z);
-      }
-    };
-
-  })(budgetController, UIController);
-  */
-
-/**
- * BUDGET CONTROLLER
- */
-
 var budgetController = (function() {
   'use strict';
 
   //<reference https://stackoverflow.com/questions/3350215/what-is-returned-from-a-constructor
   //create a private function constructor p.s always use capital letter in the beginning
-  var Expense = function(id, description, value) {
+  function Expense(id, description, value) {
     this.id = id;
     this.description = description;
     this.value = value;
@@ -134,7 +24,7 @@ var budgetController = (function() {
     return this.percentage;
   };
 
-  var Income = function(id, description, value) {
+  function Income(id, description, value) {
     this.id = id;
     this.description = description;
     this.value = value;
@@ -366,12 +256,12 @@ var UIController = (function() {
     },
     clearFields: function() {
       var fields, fieldsArr;
-      //returns a node list, in a DOMtree, where all of the html elements of our page are stored, each element is called a node, Nodelist does not have the forEach method
+      // returns a node list, in a DOM Tree, where all of the html elements of our page are stored, each element is called a node, Nodelist does not have the forEach method
       fields = document.querySelectorAll(DOMstrings.inputDescription + ', ' +  DOMstrings.inputValue);
 
-      //this will trick the slice method into thinking that we give it an array so it will return an array, we can't do it like this fields.silce() 'cause fields is not an array.
-      //call slice method in the Array prototype using .call so that it becomes the this variable
-      //Array is the function constructor of all arrays and slice methods is in its prototype
+      // this will trick the slice method into thinking that we give it an array so it will return an array, we can't do it like this fields.slice() 'cause fields is not an array.
+      // call slice method in the Array prototype using .call so that it becomes the this variable
+      // Array is the function constructor of all arrays and slice methods is in its prototype
       fieldsArr = Array.prototype.slice.call(fields);
 
       //we use foreach 'cause it moves over all of the elements of the fields array, and then sets the value of all of them back to empty string
@@ -435,7 +325,7 @@ var UIController = (function() {
       document.querySelector(DOMstrings.inputBtn).classList.toggle('red');
     },
     getDOMstrings: function() {
-      //turn private DOMstrings to public so it can be access by the AppController
+      // turn private DOMstrings to public so it can be access by the AppController
       return DOMstrings;
     }
   };
@@ -499,12 +389,16 @@ var APPController = (function(budgetCtrl, UICtrl) {
 
   /** DELETE ITEM  **/
   var ctrlDeleteItem = function(e) {
+    // Event Delegation. Let's test what target element is triggered by attaching event to the container
+    if(!e.target.matches('i')) return;  // skip this unless it's an i
+    console.log(e.target);
+
     var itemID, splitID, type, ID;
-    // Event Delegation
-    // Let's test where target element triggered, if you don't use parentNode only the element that is clicked will be returned not the parent element.
+
     // Let's do DOM traversing, event bubbling using parentNode 4x to access the id income parent when <i></i> element is triggered
-    // console.log(e.target.parentNode.parentNode.parentNode.parentNode.id);
+    // If you don't use parentNode, only the element that is clicked will be returned not the parent element.
     itemID = e.target.parentNode.parentNode.parentNode.parentNode.id;
+
     if(itemID) {
       // let's split inc-1 ['inc', '1']; javascript wraps so it can automatically turn a primitive into an object
       splitID = itemID.split('-');
