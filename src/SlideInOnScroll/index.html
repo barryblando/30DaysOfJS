@@ -43,6 +43,8 @@
   </div>
 
   <script>
+
+    // Throttle fast scroll
     function debounce(func, wait = 20, immediate = true) {
       var timeout;
       return function() {
@@ -60,7 +62,7 @@
 
     const sliderImages = document.querySelectorAll('.slide-in');
 
-    // TODO: function runs every time a user scroll
+    // TODO: set function runs every time a user scroll
     function checkSlide(e) {
       console.log(e);
       sliderImages.forEach(sliderImage => {
