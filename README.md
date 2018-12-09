@@ -32,6 +32,12 @@ DAY 14 - Object and Arrays - Reference VS Copy
 
 DAY 15 - LocalStorage and Event Delegation
 
+DAY 16 - Mouse Move Shadow
+
+DAY 17 - Sorting Without Articles
+
+DAY 18 - Adding Up Time with Reduce
+
 ## DOM Manipulation Section
 
 DOM 1 - Task List
