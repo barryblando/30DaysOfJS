@@ -54,8 +54,8 @@
 
   // if a > b return 1
   // if a < b return -1
-  // If -1 returned means that b should come after a in the array.
-  // If 1 returned means that a should come after b in the array.
+  // If -1 returned means that b should come after a in the array. [a, b]
+  // If 1 returned means that a should come after b in the array. [b, a]
   // If 0 returned means that they are considered equal in the array.
   // In comparison to a and b, if a is greater than b add 1 to the index of a and place it behind b, if a is less than b, subtract 1 from a and place it in front of b. If a and b are the same, add 0 to a and leave it where it is.
   const sortedBands = bands.sort((a, b) => strip(a) > strip(b) ? 1 : -1);

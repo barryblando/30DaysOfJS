@@ -17,6 +17,9 @@
 // });
 
 // EVENT DELEGATION - simple term is putting listener to parent what you are looking for and put condition using e.target and do functionality
+// - refers to the process of using event propagation (bubbling) to handle events at a higher level in the DOM than the element on which the event originated. It allows us to attach a single event listener for elements that exist now or in the future. Inside the Event Handling Function.
+
+// https://javascript.info/event-delegation
 
 document.body.addEventListener('click', deleteItem);
 

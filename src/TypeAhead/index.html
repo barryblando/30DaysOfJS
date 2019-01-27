@@ -42,19 +42,19 @@ function displayMatches() {
   const matchArray = findMatches(this.value, cities);
 
   const html = matchArray.map(place => {
-  const regex = new RegExp(this.value, 'gi');
+    const regex = new RegExp(this.value, 'gi');
 
-  // Highlight text
-  const cityName = place.city.replace(regex, `<span class="h1">${this.value}</span>`);
-  const stateName = place.state.replace(regex, `<span class="h1">${this.value}</span>`);
+    // Highlight text
+    const cityName = place.city.replace(regex, `<span class="h1">${this.value}</span>`);
+    const stateName = place.state.replace(regex, `<span class="h1">${this.value}</span>`);
 
-  return `
-    <li>
-      <span class="name">${cityName}, ${stateName}</span>
-      <span class="name">${numberWithCommas(place.population)}</span>
-    </li>
-  `;
-  }).join(''); //map will return an array when we really want just one string, just use join
+    return `
+      <li>
+        <span class="name">${cityName}, ${stateName}</span>
+        <span class="name">${numberWithCommas(place.population)}</span>
+      </li>
+    `;
+    }).join(''); // map will return an array when we really want just one string, just use join
 
   suggestions.innerHTML = html;
 }

@@ -32,6 +32,9 @@
   const items = JSON.parse(localStorage.getItem('items')) || [];
   const btnCheckAll = document.querySelector('.toggle-check');
 
+  // MORE INFO: https://javascript.info/bubbling-and-capturing
+  // MORE INFO: https://javascript.info/event-delegation
+
   function addItem(e) {
     e.preventDefault(); // prevent page from unnecessary reloading
     const text = (this.querySelector('[name=item]')).value;

@@ -1,11 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:100,200,400,500');
 
-* {
-  padding: 0;
+*,
+*:not(img),
+*::after,
+*::before {
+  box-sizing: inherit;
   margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
 }
 
 body {
+  box-sizing: border-box;
   font-family: 'Raleway', sans-serif;
    /* take up the whole height how big or small the browser sizes */
   color: rgb(255, 255, 255);
@@ -13,11 +22,7 @@ body {
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  padding: 0 5rem;
+  width: 100%;
 }
 
 /*****************************************************/
@@ -26,12 +31,12 @@ body {
 
 .site-header {
   width: 100%;
+  /* max-width: 100%; */
   position: absolute;
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
-  align-content: center;
   margin-top: 5rem;
+  font-size: 1.5rem;
 }
 
 .site-header > .site-header__nav li {
@@ -39,17 +44,83 @@ body {
 }
 
 .site-header > .site-header__nav li:not(:last-child) {
-  margin-right: 2rem;
+  margin-right: .5rem;
+}
+
+nav.site-header__nav a {
+	position: relative;
+	display: inline-block;
+	margin: 0 1rem;
+	outline: none;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 300;
+	text-shadow: 0 0 1px rgba(255,255,255,0.3);
+	font-size: 1.35em;
+}
+
+nav.site-header__nav a:hover,
+nav.site-header__nav a:focus {
+	outline: none;
+}
+
+/* Link Effect: Brackets */
+.cl-effect-1 a::before,
+.cl-effect-1 a::after {
+	display: inline-block;
+	opacity: 0;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+	-moz-transition: -moz-transform 0.3s, opacity 0.2s;
+	transition: transform 0.3s, opacity 0.2s;
+}
+
+.cl-effect-1 a::before {
+	margin-right: 10px;
+	content: '[';
+	-webkit-transform: translateX(20px);
+	-moz-transform: translateX(20px);
+	transform: translateX(20px);
+}
+
+.cl-effect-1 a::after {
+	margin-left: 10px;
+	content: ']';
+	-webkit-transform: translateX(-20px);
+	-moz-transform: translateX(-20px);
+	transform: translateX(-20px);
+}
+
+.cl-effect-1 a:hover::before,
+.cl-effect-1 a:hover::after,
+.cl-effect-1 a:focus::before,
+.cl-effect-1 a:focus::after {
+	opacity: 1;
+	-webkit-transform: translateX(0px);
+	-moz-transform: translateX(0px);
+	transform: translateX(0px);
 }
 
 .large-hero {
   height: 100vh;
+  width: 100%;
   background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+  display: flex;
+  align-items: center;
+
+  border: solid 2px lavender; /*debug*/
+}
+
+.large-hero__box {
+  width: inherit;
+  padding: 5rem;
+
+  border: dashed 2px mistyrose; /*debug*/
 }
 
 .row {
   display: flex;
-  flex-direction: row;
 }
 
 .dev-name {
@@ -79,14 +150,15 @@ h2 {
   font-size: 3.5rem;
   display: inline-block;
   /* line-height: 1.2; */
-  max-width: 30%;
+  width: 20%;
   letter-spacing: 0.2px;
   border-left: 3px solid #fff;
   background-color: rgba(189,189,189,0.1);
-  padding: 15px 8px 15px 17px;
+  padding: 10px 8px 15px 17px;
   border-radius: 5px;
   margin: 0 1rem;
-  animation: slideIn 8s cubic-bezier(.66,.02,.52,1.07);
+  margin-top: -.4rem;
+  animation: slideIn 7s cubic-bezier(.66,.02,.52,1.07);
 }
 
 span.dev-slash--lesser::after {
@@ -100,7 +172,8 @@ span.dev-slash--lesser::after {
 
 .txt-type {
   display: inline-block;
-  transform: translate(-5%, 10%);
+  /* margin-left: -1rem; */
+  transform: translate(0, 10%);
 }
 
 .txt-cursor {
@@ -110,11 +183,27 @@ span.dev-slash--lesser::after {
 }
 
 .blinking-cursor {
-  -webkit-animation: 1s blink step-end infinite;
-  -moz-animation: 1s blink step-end infinite;
-  -ms-animation: 1s blink step-end infinite;
-  -o-animation: 1s blink step-end infinite;
-  animation: 1s blink step-end infinite;
+  -webkit-animation: 1s blink infinite;
+  -moz-animation: 1s blink infinite;
+  -ms-animation: 1s blink infinite;
+  -o-animation: 1s blink infinite;
+  /* animation: 1s blink step-end infinite; solid */
+  animation: 1s blink infinite; /* smooth */
+  color: rgb(255, 255, 255);
+}
+
+.text {
+  font-weight: 100;
+  font-size: 2rem;
+  color: #FAFAFA;
+  margin-top: .5rem;
+  margin-left: .5rem;
+  max-height: 5rem;
+  height: 4rem;
+}
+
+.dud {
+  color: #ccc;
 }
 
 /*****************************************************/
@@ -133,13 +222,18 @@ span.dev-slash--lesser::after {
   }
 
   .code-box {
-    max-width: 50%;
+    width: 50%;
+    margin-top: 0;
   }
 }
 
 @media(max-width: 800px) {
   .container {
     padding: 0 1rem;
+  }
+
+  .site-header {
+    display: none;
   }
 
   h1 {
@@ -153,12 +247,13 @@ span.dev-slash--lesser::after {
   .code-box {
     font-size: 2.5rem;
     max-width: 100%;
+    margin: 0 .5rem;
   }
 }
 
 @media(max-width: 500px) {
   h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   h2 {
@@ -169,6 +264,15 @@ span.dev-slash--lesser::after {
     font-size: 2rem;
     max-width: 100%;
   }
+
+  .text {
+    font-size: 1rem;
+    word-wrap: break-word;
+  }
+
+  .txt-cursor {
+    margin-left: -.5rem;
+  }
 }
 
 /*****************************************************/
@@ -176,24 +280,21 @@ span.dev-slash--lesser::after {
 /*****************************************************/
 
 @keyframes blink {
-  from, to {
-    color: transparent;
-  }
-  50% {
-    color: rgb(255, 255, 255);
-  }
+  from { opacity: 1.0; }
+  50% { opacity: 0; }
+  to { opacity: 1.0; }
 }
 
 @keyframes showup {
-  0% {opacity:0;}
-  20% {opacity:1;}
-  80% {opacity:1;}
-  100% {opacity:1;}
+  0% { opacity:0; }
+  20% { opacity:1; }
+  80% { opacity:1; }
+  100% { opacity:1; }
 }
 
 @keyframes slideIn {
-  0% { margin-left: -1000px; background-color: rgb(255, 255, 255);}
-  20% { margin-left: -1000px; background-color: rgb(255, 255, 255);}
-  35% { margin-left: 1rem; background-color: rgba(189,189,189,0.1);}
-  100% { margin-left: 1rem; background-color: rgba(189,189,189,0.1);}
+  0% { margin-left: -1000px; background-color: rgb(255, 255, 255); }
+  20% { margin-left: -1000px; background-color: rgb(255, 255, 255); }
+  35% { margin-left: 1rem; background-color: rgba(189,189,189,0.1); }
+  100% { margin-left: 1rem; background-color: rgba(189,189,189,0.1); }
 }
