@@ -186,6 +186,7 @@
   const timeNodes = Array.from(document.querySelectorAll('[data-time]'));
 
   // turn node list into an array of strings then turn into number then sum up all seconds
+  // TIP: parseFloat will automatically parse each item in the array, no need for explicit function
   const seconds = timeNodes
     .map(node => node.dataset.time.split(':').map(parseFloat)) // returns array [1, 56] - min & secs
     .map(([mins, secs]) => (mins * 60) + secs) // returns array of seconds

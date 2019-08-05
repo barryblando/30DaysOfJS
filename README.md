@@ -1,4 +1,6 @@
-# 30DaysOfJS
+# ALL ABOUT JAVASCRIPT
+
+[Exploring JS/ES6+](https://exploringjs.com/es6/)
 
 30 Day Vanilla Javascript Coding Challenge
 
@@ -114,9 +116,3 @@ MP 8 - Profile Scroller w/ ES6 Generator/Iterator
 - [Mediator](http://www.dofactory.com/javascript/mediator-design-pattern): Defines simplified communication between classes
 - [Observer](http://www.dofactory.com/javascript/observer-design-pattern): A way of notifying change to a number of classes
 - [State](http://www.dofactory.com/javascript/state-design-pattern): Alter an object's behavior when its state changes
-
-**Project:**
-
-- Tracalorie
-
-- Budgety

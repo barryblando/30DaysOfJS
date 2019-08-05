@@ -3,6 +3,9 @@
     "javascript": "html"
   },
   "cSpell.words": [
+    "contenteditable",
     "repos"
-  ]
+  ],
+  "browser-preview.chromeExecutable": "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+  "browser-preview.startUrl": "http://localhost:5500/"
 }

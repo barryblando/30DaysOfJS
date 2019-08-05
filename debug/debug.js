@@ -103,7 +103,7 @@ function buildFn() {
 }
 
 const bFn = buildFn();
-bFn[1]();
+// bFn[1]();
 
 console.log("10" + 20 + 30);
 console.log(20 + 30 + "10");
@@ -237,11 +237,3 @@ const transportation = data.reduce((obj, item) => {
 }, {}); // object as an initial 'cause we don't know if that key exist
 
 console.log(transportation);
-
-const app = {
-  next(hello) {
-    console.log(hello);
-  }
-};
-
-app['next']('Hi');
